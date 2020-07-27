@@ -7,14 +7,29 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.infoLink {
+  padding-top: 5vh;
+}
+
 .randomNumberButton {
-  margin-top: 2vh;
+  margin-top: 1vh;
   padding: 5px 5px 5px 5px;
+}
+
+.footer {
+  height: 5vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sig {
+  padding-left: 2px;
+  padding-bottom: 2px;
 }

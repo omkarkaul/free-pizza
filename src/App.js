@@ -24,12 +24,13 @@ function App() {
     <>
       <div className = "container">
         <h1 className = "randomNumber">{randomNumber}</h1>
-        <button className = "randomNumberButton" onClick = {generateRandomNumber}>More Pizza!</button>
+        <button className = "randomNumberButton" onClick = {generateRandomNumber}><b>More Pizza!</b></button>
+
+        <h5 className = "infoLink"> <a href = "https://github.com/omkarkaul/free-pizza">What even is this?</a></h5>
       </div>
 
       <div className = "footer">
-        <p>Made by Omkar</p>
-        
+        <p className = "sig">Made by Omkar :)</p>
       </div>
     </>
   );
