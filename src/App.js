@@ -5,17 +5,30 @@ function App() {
   const [randomNumber, setrandomNumber] = useState(0);
 
   useEffect(() => {
-    generateRandomNumber();
+      getPizzaCode();
   }, []);
-  
-  function generateRandomNumber() {
-    let randomNumber = Math.floor(10000 + Math.random()*(99999 + 1 - 10000));
 
-    while(randomNumber % 3 !== 0) {
-      randomNumber = Math.floor(10000 + Math.random()*(99999 + 1 - 10000));
+  const getFourDigitCode = () => {
+    let code = 1;
+    while (code % 3 !== 0) {
+      code = Math.floor(Math.random() * (9999-1000)) + 1000;
+    }
+    return code+1;
+  }
+
+  const getParsedPizzaCode = (pizza_code) => {
+    return parseInt("2"+pizza_code.toString());
+  }
+  
+  function getPizzaCode() {
+    let randomNumber = getFourDigitCode();
+    let parsedPizzaCode = getParsedPizzaCode(randomNumber);
+    while(parsedPizzaCode % 3 !== 0) {
+      randomNumber = getFourDigitCode();
+      parsedPizzaCode = getParsedPizzaCode(randomNumber);
     }
 
-    setrandomNumber(randomNumber);
+    setrandomNumber(parsedPizzaCode);
   }
 
 
@@ -24,7 +37,7 @@ function App() {
     <>
       <div className = "container">
         <h1 className = "randomNumber">{randomNumber}</h1>
-        <button className = "randomNumberButton" onClick = {generateRandomNumber}><b>More Pizza!</b></button>
+        <button className = "randomNumberButton" onClick = {getPizzaCode}><b>More Pizza!</b></button>
 
         <h5 className = "infoLink"> <a href = "https://github.com/omkarkaul/free-pizza">What even is this?</a></h5>
       </div>
