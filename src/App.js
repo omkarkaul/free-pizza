@@ -1,44 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
+import RandomNumberCard from './components/RandomNumberCard';
 
 function App() {
-  const [randomNumber, setrandomNumber] = useState(0);
-
-  useEffect(() => {
-      getPizzaCode();
-  }, []);
-
-  const getFourDigitCode = () => {
-    let code = 1;
-    while (code % 3 !== 0) {
-      code = Math.floor(Math.random() * (9999-1000)) + 1000;
-    }
-    return code+1;
-  }
-
-  const getParsedPizzaCode = (pizza_code) => {
-    return parseInt("2"+pizza_code.toString());
-  }
-  
-  function getPizzaCode() {
-    let randomNumber = getFourDigitCode();
-    let parsedPizzaCode = getParsedPizzaCode(randomNumber);
-    while(parsedPizzaCode % 3 !== 0) {
-      randomNumber = getFourDigitCode();
-      parsedPizzaCode = getParsedPizzaCode(randomNumber);
-    }
-
-    setrandomNumber(parsedPizzaCode);
-  }
-
-
-
   return (
     <>
       <div className = "container">
-        <h1 className = "randomNumber">{randomNumber}</h1>
-        <button className = "randomNumberButton" onClick = {getPizzaCode}><b>More Pizza!</b></button>
-
+        <div className = 'cardContainer'>
+          <RandomNumberCard title="Old style code" startingNumber="2"/>
+          <RandomNumberCard title="New code #1" startingNumber="5"/>
+          <RandomNumberCard title="New code #2" startingNumber="8"/>
+        </div>
         <h5 className = "infoLink"> <a href = "https://github.com/omkarkaul/free-pizza">What even is this?</a></h5>
       </div>
 

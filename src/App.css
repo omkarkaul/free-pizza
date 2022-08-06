@@ -14,6 +14,13 @@
   align-items: center;
 }
 
+.cardContainer {
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .infoLink {
   padding-top: 5vh;
 }
@@ -21,6 +28,12 @@
 .randomNumberButton {
   margin-top: 1vh;
   padding: 5px 5px 5px 5px;
+}
+
+.randomNumberCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 1vw 1vh 1vw;
 }
 
 .footer {
